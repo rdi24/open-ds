@@ -13,7 +13,7 @@ const config = {
 
   // Website URL
   url: 'https://rdi24.github.io',
-  baseUrl: '/',
+  baseUrl: '/open-ds/',
 
   onBrokenLinks: 'throw',
 
