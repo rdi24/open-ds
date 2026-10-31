@@ -1,4 +1,3 @@
-
 name: Deploy OpenDS Documentation
 
 on:
@@ -24,23 +23,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-
-      - name: Extract Docusaurus project
-        run: |
-          tar -xzf opends-docs.tar.gz
-          test -f opends-docs/package.json
+          cache: npm
 
       - name: Install dependencies
-        working-directory: opends-docs
-        run: npm install
+        run: npm ci
 
       - name: Build documentation
-        working-directory: opends-docs
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: opends-docs/build
+          path: build
 
       - name: Deploy
         id: deployment
